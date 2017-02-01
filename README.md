@@ -5,7 +5,7 @@ NodeJS HTTP server to publish JSON content in Redis.
 
 Named in honour of https://en.wikipedia.org/wiki/Brian_Kernighan
 
-<img src='/evanx/docs/readme/Brian_Kernighan_json.png'/>
+<img src="https://raw.githubusercontent.com/evanx/bwk-publisher/master/docs/readme/Brian_Kernighan_json.png"/>
 
 ## Use case
 
