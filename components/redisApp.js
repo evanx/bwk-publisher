@@ -17,16 +17,23 @@ module.exports = async spec => {
     try {
         const defaults = spec[process.env.NODE_ENV || 'production'];
         const config = reduceSpec(spec, process.env, {defaults});
-        const options = lodash.pick(config, 'host', 'port', 'password');
-        const client = redis.createClient(options);
+        const client = redis.createClient({
+            host: config.redisHost,
+            port: config.redisPort,
+            password: config.redisPassword
+        });
+        const ends = [async () => client.end()];
+        const logger = require('./redisLogger')(config, redis);
+        const end = async code => {
+            await Promise.all(ends.map(end => end()));
+            process.exit(code);
+        };
         process.on('unhandledRejection', err => {
             console.error(err.message);
-            client.quit();
-            client.quit();
-            process.exit(1);
+            end(1);
         });
-        const logger = require('./redisLogger')(config, redis);
         return {
+            ends, end,
             assert, lodash, Promise,
             redis, client, logger, config,
             multiExecAsync
