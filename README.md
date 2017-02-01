@@ -11,33 +11,15 @@ Named in honour of https://en.wikipedia.org/wiki/Brian_Kernighan
 
 We publish adhoc JSON content to the webserver via Redis:
 ```
-echo '{
-  "name": "Brian Kernighan",
-  "about": "https://en.wikipedia.org/wiki/Brian_Kernighan",
-  "website": "http://www.cs.princeton.edu/~bwk/",
-  "quotes": [
-     "Don’t comment bad code — rewrite it.",
-     "The only way to learn a new programming language is by writing programs in it.",
-     "If you have done something twice, you are likely to do it again."
-  ]
-}' | redis-cli -p 6333 -x set bwkp:people:Brian_Kernighan:json
+cat test/Brian_Kernighan.json |
+  redis-cli -p 6333 -x set bwkp:people:Brian_Kernighan:json
 ```
 where we have an `spiped` tunnel from `localhost:6333` to a cloud-based Redis instance.
 
 Try: https://evanx.webserva.com/bwk/json/get/people/Brian_Kernighan
 
 ```
-$ curl localhost:8080/bwk/json/get/people/Brian_Kernighan
-{
-  "name": "Brian Kernighan",
-  "about": "https://en.wikipedia.org/wiki/Brian_Kernighan",
-  "website": "http://www.cs.princeton.edu/~bwk/",
-  "quotes": [
-    "Don’t comment bad code — rewrite it.",
-    "The only way to learn a new programming language is by writing programs in it.",
-    "If you have done something twice, you are likely to do it again."
-  ]
-}
+curl -s https://evanx.webserva.com/bwk/json/get/people/Brian_Kernighan
 ```
 
 ## Config
