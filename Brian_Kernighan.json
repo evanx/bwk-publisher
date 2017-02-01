@@ -1,0 +1,10 @@
+{
+  "name": "Brian Kernighan",
+  "about": "https://en.wikipedia.org/wiki/Brian_Kernighan",
+  "website": "http://www.cs.princeton.edu/~bwk/",
+  "quotes": [
+     "Don’t comment bad code — rewrite it.",
+     "The only way to learn a new programming language is by writing programs in it.",
+     "If you have done something twice, you are likely to do it again."
+  ]
+}

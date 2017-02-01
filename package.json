@@ -9,7 +9,7 @@
     "test": "NODE_ENV=test node --harmony lib/index.js",
     "tmp": "NODE_ENV=development node --harmony tmp/index.js",
     "start": "node --harmony lib/index.js",
-    "pm2start": "pm2 start lib/index.js --node-args='--harmony' --name `basename $PWD`"
+    "pm2start-8841": "httpPort=8841 pm2 start lib/index.js --node-args='--harmony' --name `basename $PWD`"
   },
   "author": "Evan Summers",
   "license": "ISC",
