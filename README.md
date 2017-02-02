@@ -35,7 +35,8 @@ This is useful for publishing adhoc JSON documents quickly e.g. a "pastebin" for
 
 ## Config
 
-See `lib/config.js`
+See `lib/config.js` https://github.com/evanx/bwk-publisher/blob/master/lib/config.js
+
 ```javascript
 module.exports = {
     description: 'Server to publish Redis JSON keys via HTTP.',
@@ -70,7 +71,7 @@ module.exports = {
 
 ## Implementation
 
-See `lib/index.js`
+See `lib/index.js` https://github.com/evanx/bwk-publisher/blob/master/lib/index.js
 
 ```javascript
 api.get(`/${config.httpRoute}/json/get/*`, async ctx => {
@@ -94,7 +95,7 @@ You can build as follows:
 docker build -t bwk-publisher https://github.com/evanx/bwk-publisher.git
 ```
 
-See `test/demo.sh` to try:
+See `test/demo.sh` https://github.com/evanx/bwk-publisher/blob/master/test/demo.sh
 - isolated network `test-bwk-network`
 - isolated Redis instance named `test-bwk-redis`
 - two `spiped` containers to test encrypt/decrypt tunnels
