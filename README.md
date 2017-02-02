@@ -16,11 +16,21 @@ cat test/Brian_Kernighan.json |
 ```
 where we have an `spiped` tunnel from `localhost:6333` to a cloud-based Redis instance.
 
+This service connects to that Redis instance, and is exposed via Nginx:
+```server {
+   listen 443 ssl;
+   server_name evanx.webserva.com;
+   ssl_certificate /etc/letsencrypt/live/evanx.webserva.com/fullchain.pem;
+   ssl_certificate_key /etc/letsencrypt/live/evanx.webserva.com/privkey.pem;
+   location /bwk {
+     proxy_pass http://localhost:8841;
+   }
+}
+```
+
 Try: https://evanx.webserva.com/bwk/json/get/people/Brian_Kernighan
 
-```
-curl -s https://evanx.webserva.com/bwk/json/get/people/Brian_Kernighan
-```
+This is useful for publishing adhoc JSON documents quickly e.g. a "pastebin" for JSON documents that you can pipe into via `redis-cli`
 
 ## Config
 
@@ -35,7 +45,7 @@ module.exports = {
         },
         httpPort: {
             description: 'the HTTP port',
-            default: 8080
+            default: 8841
         },
         redisHost: {
             description: 'the Redis host',
