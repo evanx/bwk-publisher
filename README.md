@@ -94,6 +94,12 @@ You can build as follows:
 docker build -t bwk-publisher https://github.com/evanx/bwk-publisher.git
 ```
 
+See `test/demo.sh` to try:
+- isolated network `test-bwk-network`
+- isolated Redis instance named `test-bwk-redis`
+- two `spiped` containers to test encrypt/decrypt tunnels
+- the prebuilt image `evanxsummers/bwk-publisher`
+
 ### Thanks for reading
 
 https://twitter.com/@evanxsummers
