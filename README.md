@@ -31,7 +31,7 @@ server {
 
 Try: https://evanx.webserva.com/bwk/json/get/people/Brian_Kernighan
 
-This is useful for publishing adhoc JSON documents quickly e.g. a "pastebin" for JSON documents that you can pipe into via `redis-cli`
+This is useful for publishing adhoc JSON documents quickly e.g. a "pastebin" for JSON documents that you can pipe into locally to publish remotely, e.g. using `redis-cli` and `spiped`
 
 ## Config
 
