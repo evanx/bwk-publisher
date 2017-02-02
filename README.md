@@ -87,4 +87,13 @@ api.get(`/${config.httpRoute}/json/get/*`, async ctx => {
 });
 ```
 
+## Docker
+
+You can build as follows:
+```
+docker build -t bwk-publisher https://github.com/evanx/bwk-publisher.git
+```
+
+### Thanks for reading
+
 https://twitter.com/@evanxsummers
