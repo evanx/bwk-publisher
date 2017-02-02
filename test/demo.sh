@@ -3,9 +3,12 @@
   mkdir -p tmp
   if docker network ls | grep test-bwk-network
   then
-    docker rm -f test-bwk-redis test-bwk-app test-bwk-decipher test-bwk-encipher
     docker network rm test-bwk-network
   fi
+  for name in test-bwk-redis test-bwk-app test-bwk-decipher test-bwk-encipher
+  do
+    docker rm -f $name || echo 'no $name'
+  done
   docker network create -d bridge test-bwk-network
   redisContainer=`docker run --network=test-bwk-network \
       --name test-bwk-redis -d tutum/redis`
@@ -31,7 +34,7 @@
     set bwkp:people:Brian_Kernighan:json
   appContainer=`docker run --network=test-bwk-network --name test-bwk-app \
     -e redisHost=$encipherHost -e redisPort=6341 -e redisPassword=$redisPassword \
-    -d evanxsummers/bwk`
+    -d evanxsummers/bwk-publisher`
   appHost=`docker inspect $appContainer |
     grep '"IPAddress":' | tail -1 | sed 's/.*"\([0-9\.]*\)",/\1/'`
   sleep 2
