@@ -17,7 +17,8 @@ cat test/Brian_Kernighan.json |
 where we have an `spiped` tunnel from `localhost:6333` to a cloud-based Redis instance.
 
 This service connects to that Redis instance, and is exposed via Nginx:
-```server {
+```
+server {
    listen 443 ssl;
    server_name evanx.webserva.com;
    ssl_certificate /etc/letsencrypt/live/evanx.webserva.com/fullchain.pem;
