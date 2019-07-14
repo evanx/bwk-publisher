@@ -19,12 +19,12 @@
     "fs-blob-store": "^5.2.1",
     "koa": "^2.0.0-alpha.7",
     "koa-router": "^7.0.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.14",
     "mkdirp": "^0.5.1",
     "redis": "^2.6.4"
   },
   "devDependencies": {
-    "eslint": "^6.0.0"
+    "eslint": "^6.0.1"
   },
   "repository": {
     "type": "git",
